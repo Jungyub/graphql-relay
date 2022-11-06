@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<d1da024faef2cff2c56209216b379466>>
+ * @generated SignedSource<<5d217aaf784f25b54a47d93179577fa5>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -20,6 +20,7 @@ export type SearchItemRemoveStarMutation$data = {
   readonly removeStar: {
     readonly starrable: {
       readonly stargazerCount: number;
+      readonly viewerHasStarred: boolean;
     } | null;
   } | null;
 };
@@ -49,6 +50,13 @@ v2 = {
   "kind": "ScalarField",
   "name": "stargazerCount",
   "storageKey": null
+},
+v3 = {
+  "alias": null,
+  "args": null,
+  "kind": "ScalarField",
+  "name": "viewerHasStarred",
+  "storageKey": null
 };
 return {
   "fragment": {
@@ -73,7 +81,8 @@ return {
             "name": "starrable",
             "plural": false,
             "selections": [
-              (v2/*: any*/)
+              (v2/*: any*/),
+              (v3/*: any*/)
             ],
             "storageKey": null
           }
@@ -114,6 +123,7 @@ return {
                 "storageKey": null
               },
               (v2/*: any*/),
+              (v3/*: any*/),
               {
                 "alias": null,
                 "args": null,
@@ -130,16 +140,16 @@ return {
     ]
   },
   "params": {
-    "cacheID": "78e254f2d62515d7ff7328b02c9aacf7",
+    "cacheID": "20d8abba3dc4275d07b0a9f7d648f9ed",
     "id": null,
     "metadata": {},
     "name": "SearchItemRemoveStarMutation",
     "operationKind": "mutation",
-    "text": "mutation SearchItemRemoveStarMutation(\n  $input: RemoveStarInput!\n) {\n  removeStar(input: $input) {\n    starrable {\n      __typename\n      stargazerCount\n      id\n    }\n  }\n}\n"
+    "text": "mutation SearchItemRemoveStarMutation(\n  $input: RemoveStarInput!\n) {\n  removeStar(input: $input) {\n    starrable {\n      __typename\n      stargazerCount\n      viewerHasStarred\n      id\n    }\n  }\n}\n"
   }
 };
 })();
 
-(node as any).hash = "450ae79c80b6678a24bed401ed661188";
+(node as any).hash = "0f43c3dda2ca751a10fb89823f82e14a";
 
 export default node;

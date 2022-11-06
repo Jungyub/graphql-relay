@@ -24,6 +24,7 @@ const SearchItem = ({ SearchItemFragmentRef }: { SearchItemFragmentRef: SearchIt
       addStar(input: $input) {
         starrable {
           stargazerCount
+          viewerHasStarred
         }
       }
     }
@@ -34,6 +35,7 @@ const SearchItem = ({ SearchItemFragmentRef }: { SearchItemFragmentRef: SearchIt
       removeStar(input: $input) {
         starrable {
           stargazerCount
+          viewerHasStarred
         }
       }
     }
@@ -63,7 +65,11 @@ const SearchItem = ({ SearchItemFragmentRef }: { SearchItemFragmentRef: SearchIt
     <Container>
       <Title>{data.name}</Title>
       <p>{data.description}</p>
-      <Button onClick={() => clickStarButton()} viewerHasStarred={data.viewerHasStarred}>
+      <Button
+        onClick={() => clickStarButton()}
+        viewerHasStarred={data.viewerHasStarred}
+        disabled={isAddStarInFlight || isRemoveStarInFlight}
+      >
         <div>⭑{data.stargazerCount}</div>
       </Button>
     </Container>
