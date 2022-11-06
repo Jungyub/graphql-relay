@@ -1,5 +1,5 @@
 import { RelayEnvironmentProvider } from 'react-relay/hooks';
-import RelayEnvironment from './relayEnvironment';
+import RelayEnvironment from './relay';
 import { SearchPage } from './pages/SearchPage';
 
 function App() {
