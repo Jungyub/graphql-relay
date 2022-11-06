@@ -38,6 +38,10 @@ const GlobalStyle = createGlobalStyle`
   img, fieldset, iframe {
     border: 0;
   }
+
+  li {
+    list-style: none;
+  }
 `;
 
 export default GlobalStyle;

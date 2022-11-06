@@ -1,10 +1,10 @@
 import { SetStateAction, useState } from 'react';
 import styled from 'styled-components';
+import SearchItem from './SearchItem';
 import { graphql } from 'babel-plugin-relay/macro';
 import { usePaginationFragment } from 'react-relay/hooks';
 import { SearchPageFragment$key } from './__generated__/SearchPageFragment.graphql';
-import { SearchPageQuery } from '../../pages/__generated__/SearchPageQuery.graphql';
-import SearchItem from './SearchItem';
+import { SearchPagePaginationQuery } from './__generated__/SearchPagePaginationQuery.graphql';
 
 const SearchFragment = graphql`
   fragment SearchPageFragment on Query
@@ -16,7 +16,6 @@ const SearchFragment = graphql`
         node {
           ...SearchItemFragment
         }
-        cursor
       }
     }
   }
@@ -25,7 +24,7 @@ const SearchFragment = graphql`
 function Search(props: { query: SearchPageFragment$key }) {
   const [searchValue, setSearchValue] = useState('');
 
-  const { data, loadNext, hasNext, refetch } = usePaginationFragment<SearchPageQuery, SearchPageFragment$key>(
+  const { data, loadNext, hasNext, refetch } = usePaginationFragment<SearchPagePaginationQuery, SearchPageFragment$key>(
     SearchFragment,
     props.query,
   );
@@ -40,7 +39,7 @@ function Search(props: { query: SearchPageFragment$key }) {
   return (
     <>
       <div>
-        <input onChange={changeSearchValue} />
+        <Input onChange={changeSearchValue} />
         <Button onClick={clickSearchButton}>검색</Button>
       </div>
       <ul>
@@ -55,7 +54,16 @@ function Search(props: { query: SearchPageFragment$key }) {
 
 export default Search;
 
+const Input = styled.input`
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+`;
+
 const Button = styled.button`
-  border: 1px solid #95a5a6;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
   background-color: #ecf0f1;
 `;

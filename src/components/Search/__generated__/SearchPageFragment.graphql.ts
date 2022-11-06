@@ -1,5 +1,5 @@
 /**
- * @generated SignedSource<<a1ea5ae9a2e350a0838dcf2e2681817a>>
+ * @generated SignedSource<<5db50206f9b8a42af4b2e04f45726a41>>
  * @lightSyntaxTransform
  * @nogrep
  */
@@ -13,7 +13,6 @@ import { FragmentRefs } from "relay-runtime";
 export type SearchPageFragment$data = {
   readonly search: {
     readonly edges: ReadonlyArray<{
-      readonly cursor: string;
       readonly node: {
         readonly " $fragmentSpreads": FragmentRefs<"SearchItemFragment">;
       } | null;
@@ -166,6 +165,6 @@ return {
 };
 })();
 
-(node as any).hash = "ba7244fff091884eda7978fdf4f06d6f";
+(node as any).hash = "2a2a47c9da11a7c635334e386699812a";
 
 export default node;
