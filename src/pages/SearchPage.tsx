@@ -14,7 +14,7 @@ const SearchQuery = graphql`
 `;
 
 export function SearchPage() {
-  const query = useLazyLoadQuery<SearchPageQuery>(SearchQuery, { query: '', count: 10 });
+  const query = useLazyLoadQuery<SearchPageQuery>(SearchQuery, { query: 'test', count: 10 });
 
   return (
     <Container>

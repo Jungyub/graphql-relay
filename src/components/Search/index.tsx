@@ -22,7 +22,7 @@ const SearchFragment = graphql`
 `;
 
 function Search(props: { query: SearchPageFragment$key }) {
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState('test');
 
   const { data, loadNext, hasNext, refetch } = usePaginationFragment<SearchPagePaginationQuery, SearchPageFragment$key>(
     SearchFragment,
@@ -39,7 +39,7 @@ function Search(props: { query: SearchPageFragment$key }) {
   return (
     <>
       <div>
-        <Input onChange={changeSearchValue} />
+        <Input value={searchValue} onChange={changeSearchValue} />
         <Button onClick={clickSearchButton}>검색</Button>
       </div>
       <ul>
